@@ -5,6 +5,8 @@
  */
 package cl.polett.divisas.vista;
 
+import cl.polett.divisas.controlador.ControladorBiblioteca;
+
 /**
  *
  * @author polett
@@ -62,6 +64,11 @@ public class AplicacionIngresar extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Libro", "Revista" }));
 
         jButton1.setText("Ingresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Limpiar");
 
@@ -235,6 +242,16 @@ public class AplicacionIngresar extends javax.swing.JFrame {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    // BOTON INGRESAR
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ControladorBiblioteca controlador = new ControladorBiblioteca();
+        
+       if (jComboBox1.getSelectedIndex()==1){
+       jTextField1.setText("HOLA");
+       }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,0 +1,21 @@
+CREATE TABLE `guia_1_6`.`Documento` (
+  `codigo` VARCHAR(255) NOT NULL,
+  `titulo` VARCHAR(255) NOT NULL,
+  `autor` VARCHAR(255) NOT NULL,
+  `editorial` VARCHAR(255) NOT NULL,
+  `anioPublicacion` INT NOT NULL,
+  `tipoDocumento` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`codigo`));
+
+  CREATE TABLE `guia_1_6`.`Libro` (
+  `codigoLibro` VARCHAR(45) NOT NULL,
+  `enPrestamo` TINYINT(1) NOT NULL,
+  `paraPrestamo` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`codigoLibro`));
+
+  CREATE TABLE `guia_1_6`.`Revista` (
+  `codigoRevista` VARCHAR(255) NOT NULL,
+  `volumen` INT NULL,
+  `numero` INT NOT NULL,
+  `mesSalida` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`codigoRevista`));
