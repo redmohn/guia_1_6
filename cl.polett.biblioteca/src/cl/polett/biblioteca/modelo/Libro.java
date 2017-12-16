@@ -1,4 +1,4 @@
-package cl.polett.divisas.modelo;
+package cl.polett.biblioteca.modelo;
 
 /**
  *

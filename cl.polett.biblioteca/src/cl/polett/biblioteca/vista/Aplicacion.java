@@ -1,4 +1,4 @@
-package cl.polett.divisas.vista;
+package cl.polett.biblioteca.vista;
 
 /**
  *

@@ -1,6 +1,6 @@
-package cl.polett.divisas.servicio;
+package cl.polett.biblioteca.servicio;
 
-import cl.polett.divisas.modelo.Documento;
+import cl.polett.biblioteca.modelo.Documento;
 
 /**
  *

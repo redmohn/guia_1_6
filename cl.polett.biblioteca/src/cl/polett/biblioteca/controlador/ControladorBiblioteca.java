@@ -1,10 +1,10 @@
-package cl.polett.divisas.controlador;
+package cl.polett.biblioteca.controlador;
 
-import cl.polett.divisas.modelo.Documento;
-import cl.polett.divisas.modelo.Libro;
-import cl.polett.divisas.modelo.Revista;
-import cl.polett.divisas.servicio.BD;
-import cl.polett.divisas.servicio.impl.MySQL;
+import cl.polett.biblioteca.modelo.Documento;
+import cl.polett.biblioteca.modelo.Libro;
+import cl.polett.biblioteca.modelo.Revista;
+import cl.polett.biblioteca.servicio.BD;
+import cl.polett.biblioteca.servicio.impl.MySQL;
 
 /**
  *

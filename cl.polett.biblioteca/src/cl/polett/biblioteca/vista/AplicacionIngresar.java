@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cl.polett.divisas.vista;
+package cl.polett.biblioteca.vista;
 
-import cl.polett.divisas.controlador.ControladorBiblioteca;
+import cl.polett.biblioteca.controlador.ControladorBiblioteca;
 import java.awt.Color;
 import static java.lang.Integer.parseInt;
 

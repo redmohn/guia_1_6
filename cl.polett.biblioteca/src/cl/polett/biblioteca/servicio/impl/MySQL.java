@@ -1,9 +1,9 @@
-package cl.polett.divisas.servicio.impl;
+package cl.polett.biblioteca.servicio.impl;
 
-import cl.polett.divisas.modelo.Documento;
-import cl.polett.divisas.modelo.Libro;
-import cl.polett.divisas.modelo.Revista;
-import cl.polett.divisas.servicio.BD;
+import cl.polett.biblioteca.modelo.Documento;
+import cl.polett.biblioteca.modelo.Libro;
+import cl.polett.biblioteca.modelo.Revista;
+import cl.polett.biblioteca.servicio.BD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
