@@ -8,7 +8,9 @@ import cl.polett.divisas.modelo.Documento;
  */
 public interface BD {
     
-    public boolean agregar(Documento documento);
+    public boolean agregarLibro(Documento documento);
+    
+    public boolean agregarRevista(Documento documento);
     
     public boolean eliminar(Documento documento);
     

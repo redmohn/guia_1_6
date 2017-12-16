@@ -6,18 +6,27 @@
 package cl.polett.divisas.vista;
 
 import cl.polett.divisas.controlador.ControladorBiblioteca;
+import java.awt.Color;
+import static java.lang.Integer.parseInt;
 
 /**
  *
  * @author polett
  */
 public class AplicacionIngresar extends javax.swing.JFrame {
+    
+    private boolean prestamo;
 
-    /**
-     * Creates new form AplicacionIngresar
-     */
     public AplicacionIngresar() {
         initComponents();
+
+        // Desabilitamos los campos indicados al ingresar
+        jTextField6.setEnabled(false);
+        jTextField7.setEnabled(false);
+        jComboBox2.setEnabled(false);
+        jRadioButton1.setEnabled(false);
+        jRadioButton2.setEnabled(false);
+
     }
 
     /**
@@ -56,12 +65,18 @@ public class AplicacionIngresar extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Documento");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Libro", "Revista" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +86,11 @@ public class AplicacionIngresar extends javax.swing.JFrame {
         });
 
         jButton2.setText("Limpiar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Salir");
 
@@ -97,6 +117,11 @@ public class AplicacionIngresar extends javax.swing.JFrame {
         jLabel9.setText("Mes");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Préstamo");
 
@@ -110,6 +135,15 @@ public class AplicacionIngresar extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("NO");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,8 +169,8 @@ public class AplicacionIngresar extends javax.swing.JFrame {
                                 .addComponent(jLabel8)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel2)
-                                    .addGap(39, 39, 39)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(36, 36, 36)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel7))
                                 .addComponent(jLabel9)
@@ -151,9 +185,8 @@ public class AplicacionIngresar extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField2)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)))))
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                    .addComponent(jTextField4))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -166,6 +199,10 @@ public class AplicacionIngresar extends javax.swing.JFrame {
                                 .addComponent(jRadioButton2))))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +255,9 @@ public class AplicacionIngresar extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -239,19 +278,111 @@ public class AplicacionIngresar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    // RADIOBUTTON prestamo SI
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
+        prestamo = true;
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     // BOTON INGRESAR
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ControladorBiblioteca controlador = new ControladorBiblioteca();
         
-       if (jComboBox1.getSelectedIndex()==1){
-       jTextField1.setText("HOLA");
-       }
+        if (jComboBox1.getSelectedIndex() == 1){
+            
+            // Invocando al constructor de agregarLibro
+            boolean libroAgregado = controlador.agregarLibro(
+                    prestamo,//prestamo
+                    this.jTextField4.getText(),//codigoDcto 
+                    this.jTextField1.getText(),//titulo 
+                    this.jTextField2.getText(),//autor 
+                    this.jTextField3.getText(),//editorial 
+                    parseInt(this.jTextField5.getText()),//anioPublicacion 
+                    "Libro");
+            
+            // Si el boolean nos retorna un ok, entonces mostramos:
+            if (libroAgregado){
+                this.jLabel11.setText("Libro agregado exitosamente");                
+            } else {
+                this.jLabel11.setText("No se pudo agregar");
+            }
+            
+        }
         
+        if (jComboBox1.getSelectedIndex() == 2){
+            
+            // Invocando al constructor de agregarRevista
+            boolean revistaAgregada = controlador.agregarRevista(
+                    parseInt(this.jTextField6.getText()),//volumen 
+                    parseInt(this.jTextField7.getText()),//numero 
+                    this.jComboBox2.getSelectedItem().toString(), //mesSalida
+                    this.jTextField4.getText(),//codigoDcto 
+                    this.jTextField1.getText(),//titulo 
+                    this.jTextField2.getText(),//autor 
+                    this.jTextField3.getText(),//editorial 
+                    parseInt(this.jTextField5.getText()),//anioPublicacion 
+                    "Revista");
+            
+            // Si el boolean nos retorna un ok, entonces mostramos:
+            if (revistaAgregada){
+                this.jLabel11.setText("Revista agregada exitosamente");                
+            } else {
+                this.jLabel11.setText("No se pudo agregar");
+            }    
+        } 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    // COMBO BOX 1: Seleccionar tipo de Documento
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    
+        if (jComboBox1.getSelectedIndex() == 0) {
+            // Desabilitando los campos iniciales
+            jTextField6.setEnabled(false);
+            jTextField7.setEnabled(false);
+            jComboBox2.setEnabled(false);
+            jRadioButton1.setEnabled(false);
+            jRadioButton2.setEnabled(false);
+        }
+
+        if (jComboBox1.getSelectedIndex() == 1) {
+            // Habilitando los campos para libro
+            jTextField6.setEnabled(false);
+            jTextField7.setEnabled(false);
+            jComboBox2.setEnabled(false);
+            jRadioButton1.setEnabled(true);
+            jRadioButton2.setEnabled(true);
+        }
+
+        if (jComboBox1.getSelectedIndex() == 2) {
+            // Habilitando los campos para revista
+            jTextField6.setEnabled(true);
+            jTextField7.setEnabled(true);
+            jComboBox2.setEnabled(true);
+            jRadioButton1.setEnabled(false);
+            jRadioButton2.setEnabled(false);
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    // RADIOBUTTON prestamo NO
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        prestamo = false;
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+    // BOTON LIMPIAR
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.jComboBox1.setSelectedIndex(0);
+        this.jTextField1.setText("");
+        this.jTextField2.setText("");
+        this.jTextField3.setText("");
+        this.jTextField4.setText("");
+        this.jTextField5.setText("");
+        this.jTextField6.setText("");
+        this.jTextField7.setText("");
+        this.jComboBox2.setSelectedIndex(0);
+        this.buttonGroup1.clearSelection();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,6 +417,7 @@ public class AplicacionIngresar extends javax.swing.JFrame {
                 new AplicacionIngresar().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -297,6 +429,7 @@ public class AplicacionIngresar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

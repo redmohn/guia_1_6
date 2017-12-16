@@ -6,7 +6,6 @@ package cl.polett.divisas.modelo;
  */
 public class Revista extends Documento{
     
-    private String codigoRevista;
     private Integer volumen;
     private Integer numero;
     private String mesSalida;
@@ -14,28 +13,18 @@ public class Revista extends Documento{
     public Revista() {
     }
 
-    public Revista(String codigoRevista, Integer volumen, Integer numero, String mesSalida) {
-        this.codigoRevista = codigoRevista;
+    public Revista(Integer volumen, Integer numero, String mesSalida) {
         this.volumen = volumen;
         this.numero = numero;
         this.mesSalida = mesSalida;
     }
 
-    public Revista(String codigoRevista, Integer volumen, Integer numero, String mesSalida, String codigo, String titulo, String autor, String editorial, Integer anioPublicacion, String tipoDocumento) {
+    public Revista(Integer volumen, Integer numero, String mesSalida, String codigo, String titulo, String autor, String editorial, Integer anioPublicacion, String tipoDocumento) {
         super(codigo, titulo, autor, editorial, anioPublicacion, tipoDocumento);
-        this.codigoRevista = codigoRevista;
         this.volumen = volumen;
         this.numero = numero;
         this.mesSalida = mesSalida;
-    }
-
-    public String getCodigoRevista() {
-        return codigoRevista;
-    }
-
-    public void setCodigoRevista(String codigoRevista) {
-        this.codigoRevista = codigoRevista;
-    }    
+    }  
 
     public Integer getVolumen() {
         return volumen;

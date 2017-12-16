@@ -6,50 +6,25 @@ package cl.polett.divisas.modelo;
  */
 public class Libro extends Documento{
     
-    private String codigoLibro;
-    private boolean enPrestamo;
-    private boolean paraPrestamo;
+    private boolean prestamo;
 
     public Libro() {
     }
 
-    public Libro(String codigoLibro, boolean enPrestamo, boolean paraPrestamo) {
-        this.codigoLibro = codigoLibro;
-        this.enPrestamo = enPrestamo;
-        this.paraPrestamo = paraPrestamo;
+    public Libro(boolean prestamo) {
+        this.prestamo = prestamo;
     }
 
-    public Libro(String codigoLibro, boolean enPrestamo, boolean paraPrestamo, String codigo, String titulo, String autor, String editorial, Integer anioPublicacion, String tipoDocumento) {
+    public Libro(boolean prestamo, String codigo, String titulo, String autor, String editorial, Integer anioPublicacion, String tipoDocumento) {
         super(codigo, titulo, autor, editorial, anioPublicacion, tipoDocumento);
-        this.codigoLibro = codigoLibro;
-        this.enPrestamo = enPrestamo;
-        this.paraPrestamo = paraPrestamo;
+        this.prestamo = prestamo;
     }
 
-    public String getCodigoLibro() {
-        return codigoLibro;
+    public boolean isPrestamo() {
+        return prestamo;
     }
 
-    public void setCodigoLibro(String codigoLibro) {
-        this.codigoLibro = codigoLibro;
-    }  
-
-    public boolean isEnPrestamo() {
-        return enPrestamo;
+    public void setprestamo(boolean enPrestamo) {
+        this.prestamo = enPrestamo;
     }
-
-    public void setEnPrestamo(boolean enPrestamo) {
-        this.enPrestamo = enPrestamo;
-    }
-
-    public boolean isParaPrestamo() {
-        return paraPrestamo;
-    }
-
-    public void setParaPrestamo(boolean paraPrestamo) {
-        this.paraPrestamo = paraPrestamo;
-    }
-    
-    
-    
 }

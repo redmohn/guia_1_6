@@ -15,21 +15,21 @@ public class ControladorBiblioteca {
     public ControladorBiblioteca() {
     }
     
-    public boolean agregarLibro(String codigoLibro, boolean enPrestamo, boolean paraPrestamo, String codigo, String titulo, String autor, String editorial, Integer anioPublicacion, String tipoDocumento){
+    public boolean agregarLibro(boolean prestamo, String codigo, String titulo, String autor, String editorial, Integer anioPublicacion, String tipoDocumento){
         Libro libro = new Libro();
         
           
         BD bd = new MySQL();
-        boolean ok = bd.agregar(libro);
+        boolean ok = bd.agregarLibro(libro);
         return ok;
     }
     
-    public boolean agregarRevista(String codigoRevista, Integer volumen, Integer numero, String mesSalida, String codigo, String titulo, String autor, String editorial, Integer anioPublicacion, String tipoDocumento){
+    public boolean agregarRevista(Integer volumen, Integer numero, String mesSalida, String codigo, String titulo, String autor, String editorial, Integer anioPublicacion, String tipoDocumento){
         Revista revista = new Revista();
         
         
         BD bd = new MySQL();
-        boolean ok = bd.agregar(revista);
+        boolean ok = bd.agregarRevista(revista);
         return ok;
     }
     

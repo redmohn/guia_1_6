@@ -1,9 +1,12 @@
 package cl.polett.divisas.servicio.impl;
 
 import cl.polett.divisas.modelo.Documento;
+import cl.polett.divisas.modelo.Libro;
+import cl.polett.divisas.modelo.Revista;
 import cl.polett.divisas.servicio.BD;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -35,18 +38,75 @@ public class MySQL implements BD {
         }
     }
 
-    @Override
-    public boolean agregar(Documento documento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean agregarLibro(Libro libro) {
+        boolean ok = false;
+        try {
+            if(libro != null){
+                Connection conexion = conectar();
+                if (conexion != null){
+                    PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO Libro ()");
+                }
+            }
+        } catch (Exception e) {
+            ok = false;
+            System.err.println(String.format("Ha ocurrido error: %s", e.toString()));
+        }
+        return ok;
+    }
+    
+    public boolean agregarRevista(Revista revista){
+        boolean ok = false;
+        try {
+            if(revista != null){
+                Connection conexion = conectar();
+                if (conexion != null){
+                    PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO Revista ()");
+                }
+            }
+        } catch (Exception e) {
+            ok = false;
+            System.err.println(String.format("Ha ocurrido error: %s", e.toString()));
+        }
+        return ok;
     }
 
     @Override
     public boolean eliminar(Documento documento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean ok = false;
+        try {
+            if (documento != null) {
+                Connection conexion = conectar();
+                if (conexion != null) {
+
+                    // Los preparedStatement sirven para ejecutar código sanitizado en la base de datos
+                    PreparedStatement prepareStatement = conexion.prepareStatement("DELETE FROM Documento  WHERE codigo=?");
+                    prepareStatement.setString(1, documento.getCodigo());
+                    // execute se usa para valores que no tienen datos que retornar (DDL)
+                    prepareStatement.execute();
+                    ok = true;
+
+                    desconectar(conexion);
+                }
+            }
+        } catch (Exception e) {
+            ok = false;
+            System.err.println(String.format("Ha ocurrido error: %s", e.toString()));
+        }
+        return ok;
     }
 
     @Override
     public boolean listar(Documento documento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean agregarLibro(Documento documento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean agregarRevista(Documento documento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
