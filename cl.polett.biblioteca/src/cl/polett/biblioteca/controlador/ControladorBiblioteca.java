@@ -33,6 +33,15 @@ public class ControladorBiblioteca {
         return ok;
     }
     
+    public 
+    
+    /*
+    public boolean eliminar(String codigo){
+        BD bd = new MySQL();
+        Documento documento = bd.obtener(codigo);
+        boolean ok = bd.eliminar(producto);
+        return ok; 
+    }*/
     
     
 }
